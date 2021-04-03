@@ -6,17 +6,26 @@ exports.generateTripReport = void 0;
   be included in the final output.
   I also need to sort them by most miles driven to least.
 */
+/*
+ * This function will take in the 'cleaned' up report and returns
+ * an array of objects containing the name, distance, timeTraveled, and speed.
+ * It will also sort the array of objects based on the distance traveled.
+ *
+ * @params filteredResults instance of Trip[]
+ * @params drivers instance of string[]
+ *
+ * @returns Trip[] array of objects containing name, distance, timeTravaled, and speed
+ *
+ */
 var generateTripReport = function (filteredResults, drivers) {
     return drivers
         .map(function (driver) {
-        var _a, _b, _c, _d;
+        var driverTrip = filteredResults.filter(function (trip) { return trip.name === driver; })[0];
         return {
             name: driver,
-            distance: (_a = filteredResults.filter(function (trip) { return trip.name === driver; })[0]) === null || _a === void 0 ? void 0 : _a.distance,
-            timeTraveled: (_b = filteredResults.filter(function (trip) { return trip.name === driver; })[0]) === null || _b === void 0 ? void 0 : _b.timeTraveled,
-            speed: (((_c = filteredResults.filter(function (trip) { return trip.name === driver; })[0]) === null || _c === void 0 ? void 0 : _c.distance) /
-                ((_d = filteredResults.filter(function (trip) { return trip.name === driver; })[0]) === null || _d === void 0 ? void 0 : _d.timeTraveled)) *
-                60,
+            distance: Math.round(driverTrip === null || driverTrip === void 0 ? void 0 : driverTrip.distance),
+            timeTraveled: Math.round(driverTrip === null || driverTrip === void 0 ? void 0 : driverTrip.timeTraveled),
+            speed: Math.round(((driverTrip === null || driverTrip === void 0 ? void 0 : driverTrip.distance) / (driverTrip === null || driverTrip === void 0 ? void 0 : driverTrip.timeTraveled)) * 60),
         };
     })
         .sort(function (tripA, tripB) {
