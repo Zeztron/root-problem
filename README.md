@@ -2,25 +2,17 @@
 
 This program will take in an input file via command line. Each line of the input file will be processed and outputs a report containing each driver with total miles driven and average speed - sorted by most miles to least.
 
----
-
 ## Prerequisites
-
----
 
 Before running, ensure that you have Node installed on your machine. [Download Here](https://nodejs.org/en/download/)
 
 ## Installing and Executing
-
----
 
 1. Install dependencies in project folder with `npm install`
 2. To run: `node dist/index.js input.txt`
    > You can also create other input files to run: `node dist/index.js yourowninput.txt`. (Just make sure the input file is within the root project directory)
 
 ## My Approach
-
----
 
 I went with Node JS since that's what I was more comfortable with. I also used Typescript since I enjoy the type system which makes it easier to debug - just a personal preference.
 As far as programming style, I decided to use a more "functional" approach rather than creating some sort of class like `class Driver {}`. I could've used OOP but in this case I couldn't really come up with a good case to implement OOP features like inheritance (for this problem specifically). I just wanted to keep it simple and use functions.
@@ -69,14 +61,10 @@ Even though it wasn't mentioned, I thought it would be a good idea to throw some
 
 ## Testing
 
----
-
 Using a testing framework called [Jest](https://jestjs.io/), I've added tests for some of the "util" functions I've created. Specifically: `appendTrips`, `generateTripReport`, and the `parseTime` helper function.
 In each test I've provided some input and wrote some expect clauses to check if the correct output is given. I need to do this to make sure these functions are doing what they're supposed to - which provides peace of mind.
 
 ## Example Input
-
----
 
 I've provided a sample input that I made up just for fun. In order to test this, create a `.txt` file within the project directory
 and run the command `node dist/index.js [yourfile.txt]` (Replace `yourfile.txt` with the name of the file you've created)
